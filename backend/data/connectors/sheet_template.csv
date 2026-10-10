@@ -1,0 +1,89 @@
+Date,Description,Amount,Category
+2026-05-01,Salary - Acme Corp,150000,income
+2026-05-02,Rent,-32000,rent_housing
+2026-05-03,BigBasket,-1808,groceries
+2026-05-05,Electricity Bill,-2131,utilities
+2026-05-06,Netflix,-649,subscriptions
+2026-05-07,Home Loan EMI,-24000,emi_loan
+2026-05-08,Swiggy,-898,dining
+2026-05-09,Mutual Fund SIP,-15000,investment_sip
+2026-05-11,BigBasket,-2308,groceries
+2026-05-12,Uber,-294,transport
+2026-05-14,Swiggy,-724,dining
+2026-05-15,Amazon,-2976,shopping
+2026-05-17,BigBasket,-2833,groceries
+2026-05-20,Swiggy,-869,dining
+2026-05-24,BigBasket,-1598,groceries
+2026-05-27,Swiggy,-388,dining
+2026-06-01,Salary - Acme Corp,150000,income
+2026-06-02,Rent,-32000,rent_housing
+2026-06-03,BigBasket,-1643,groceries
+2026-06-05,Electricity Bill,-2228,utilities
+2026-06-06,Netflix,-649,subscriptions
+2026-06-07,Home Loan EMI,-24000,emi_loan
+2026-06-08,Zomato,-410,dining
+2026-06-09,Mutual Fund SIP,-15000,investment_sip
+2026-06-11,BigBasket,-1992,groceries
+2026-06-12,Uber,-273,transport
+2026-06-14,Swiggy,-578,dining
+2026-06-15,Amazon,-3480,shopping
+2026-06-17,BigBasket,-1685,groceries
+2026-06-20,Swiggy,-756,dining
+2026-06-24,BigBasket,-2628,groceries
+2026-06-27,Swiggy,-576,dining
+2026-07-01,Salary - Acme Corp,150000,income
+2026-07-02,Rent,-32000,rent_housing
+2026-07-03,BigBasket,-2093,groceries
+2026-07-05,Electricity Bill,-1936,utilities
+2026-07-06,Netflix,-649,subscriptions
+2026-07-07,Home Loan EMI,-24000,emi_loan
+2026-07-08,Swiggy,-665,dining
+2026-07-09,Mutual Fund SIP,-15000,investment_sip
+2026-07-11,BigBasket,-2358,groceries
+2026-07-12,Uber,-538,transport
+2026-07-14,Swiggy,-455,dining
+2026-07-15,Amazon,-1444,shopping
+2026-07-17,BigBasket,-1795,groceries
+2026-07-20,Swiggy,-731,dining
+2026-07-24,BigBasket,-2607,groceries
+2026-07-27,Swiggy,-414,dining
+2026-08-01,Salary - Acme Corp,150000,income
+2026-08-02,Rent,-32000,rent_housing
+2026-08-03,BigBasket,-1921,groceries
+2026-08-05,Electricity Bill,-2433,utilities
+2026-08-06,Netflix,-649,subscriptions
+2026-08-07,Home Loan EMI,-24000,emi_loan
+2026-08-08,Zomato,-671,dining
+2026-08-09,Mutual Fund SIP,-15000,investment_sip
+2026-08-11,BigBasket,-2516,groceries
+2026-08-12,Uber,-607,transport
+2026-08-14,Zomato,-814,dining
+2026-08-15,Amazon,-4394,shopping
+2026-08-17,BigBasket,-2893,groceries
+2026-08-20,Zomato,-656,dining
+2026-08-24,BigBasket,-2588,groceries
+2026-08-27,Swiggy,-534,dining
+2026-09-01,Salary - Acme Corp,150000,income
+2026-09-02,Rent,-32000,rent_housing
+2026-09-03,BigBasket,-1667,groceries
+2026-09-05,Electricity Bill,-2049,utilities
+2026-09-06,Netflix,-649,subscriptions
+2026-09-07,Home Loan EMI,-24000,emi_loan
+2026-09-08,Zomato,-701,dining
+2026-09-09,Mutual Fund SIP,-15000,investment_sip
+2026-09-11,BigBasket,-2676,groceries
+2026-09-12,Uber,-637,transport
+2026-09-14,Zomato,-644,dining
+2026-09-15,Amazon,-2601,shopping
+2026-09-17,BigBasket,-2114,groceries
+2026-09-20,Swiggy,-470,dining
+2026-09-24,BigBasket,-2575,groceries
+2026-09-27,Zomato,-518,dining
+2026-10-01,Salary - Acme Corp,150000,income
+2026-10-02,Rent,-32000,rent_housing
+2026-10-03,BigBasket,-2501,groceries
+2026-10-05,Electricity Bill,-1955,utilities
+2026-10-06,Netflix,-649,subscriptions
+2026-10-07,Home Loan EMI,-24000,emi_loan
+2026-10-08,Swiggy,-671,dining
+2026-10-09,Mutual Fund SIP,-15000,investment_sip

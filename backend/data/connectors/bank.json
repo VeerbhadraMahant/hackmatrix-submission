@@ -1,0 +1,16 @@
+{
+  "accounts": [
+    {"name": "HDFC Savings ••4821", "type": "savings", "balance": 184250.5},
+    {"name": "ICICI Salary ••7730", "type": "checking", "balance": 62310.0},
+    {"name": "HDFC Regalia Credit Card", "type": "credit_card", "balance": -18740.0, "limit": 200000}
+  ],
+  "loans": [
+    {"name": "Home loan (SBI)", "principal": 3850000, "apr": 8.5, "emi": 38200},
+    {"name": "Car loan (Kotak)", "principal": 420000, "apr": 9.2, "emi": 14800}
+  ],
+  "salary_credits": [
+    {"date": "2026-07-01", "narration": "SALARY ACME TECH PVT LTD", "amount": 145000},
+    {"date": "2026-08-01", "narration": "SALARY ACME TECH PVT LTD", "amount": 145000},
+    {"date": "2026-09-01", "narration": "SALARY ACME TECH PVT LTD", "amount": 145000}
+  ]
+}

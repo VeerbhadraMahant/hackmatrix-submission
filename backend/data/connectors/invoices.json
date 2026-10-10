@@ -1,0 +1,10 @@
+{
+  "invoices": [
+    {"source": "gmail", "vendor": "Airtel", "invoice_no": "AIR-0926-118", "issued": "2026-09-02", "due": "2026-09-16", "amount": 1199, "status": "paid"},
+    {"source": "gmail", "vendor": "Tata Power", "invoice_no": "TP-882143", "issued": "2026-09-05", "due": "2026-09-20", "amount": 2840, "status": "paid"},
+    {"source": "drive", "vendor": "Apollo Pharmacy", "invoice_no": "AP-55012", "issued": "2026-09-11", "due": "2026-09-11", "amount": 960, "status": "paid"},
+    {"source": "gmail", "vendor": "Netflix", "invoice_no": "NF-2026-09", "issued": "2026-09-14", "due": "2026-09-14", "amount": 649, "status": "paid"},
+    {"source": "drive", "vendor": "Society maintenance", "invoice_no": "SM-Q3-26", "issued": "2026-09-25", "due": "2026-10-10", "amount": 7500, "status": "due"},
+    {"source": "gmail", "vendor": "Jio Fiber", "invoice_no": "JF-10-4471", "issued": "2026-10-02", "due": "2026-10-17", "amount": 999, "status": "due"}
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "mutual_funds": [
+    {"scheme": "Parag Parikh Flexi Cap Fund - Direct", "units": 412.318, "nav": 84.52, "invested": 28000, "sip_monthly": 5000},
+    {"scheme": "UTI Nifty 50 Index Fund - Direct", "units": 1180.44, "nav": 158.9, "invested": 160000, "sip_monthly": 8000},
+    {"scheme": "HDFC Mid-Cap Opportunities - Direct", "units": 305.7, "nav": 211.35, "invested": 52000, "sip_monthly": 3000}
+  ],
+  "stocks": [
+    {"symbol": "RELIANCE", "qty": 20, "avg_price": 2410.0, "ltp": 2985.4},
+    {"symbol": "TCS", "qty": 10, "avg_price": 3320.0, "ltp": 3790.1},
+    {"symbol": "HDFCBANK", "qty": 35, "avg_price": 1520.0, "ltp": 1744.8}
+  ]
+}
