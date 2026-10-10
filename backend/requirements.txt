@@ -1,0 +1,14 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.13.5
+sqlmodel==0.0.22
+sqlalchemy==2.0.36
+firebase-admin==6.9.0
+python-dotenv==1.0.1
+pandas==2.2.3
+numpy==2.2.1
+httpx==0.28.1
+google-auth==2.61.0
+google-genai==2.25.0
+resend==2.5.1
+python-multipart==0.0.20
