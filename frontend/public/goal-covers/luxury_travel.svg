@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="50%" stop-color="#1E3A8A" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="sun" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="100%" stop-color="#F97316" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="340" fill="url(#bg)" />
+  <circle cx="300" cy="180" r="90" fill="url(#sun)" opacity="0.85" />
+  <path d="M0 240 Q 150 180 300 240 T 600 240 V 340 H 0 Z" fill="#0369A1" opacity="0.6"/>
+  <path d="M0 270 Q 200 220 400 270 T 600 270 V 340 H 0 Z" fill="#0C4A6E" />
+  <g transform="translate(230, 60)" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M70 10 L80 40 H120 L90 60 L100 90 L70 70 L40 90 L50 60 L20 40 H60 Z" fill="#F8FAFC" fill-opacity="0.9" />
+  </g>
+  <text x="300" y="310" text-anchor="middle" fill="#E0F2FE" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600" letter-spacing="3">GLOBAL EXPLORATION</text>
+</svg>

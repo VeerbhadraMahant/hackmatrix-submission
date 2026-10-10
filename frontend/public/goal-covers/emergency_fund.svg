@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064E3B" />
+      <stop offset="50%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34D399" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="340" fill="url(#bg)" />
+  <circle cx="500" cy="50" r="180" fill="url(#glow)" />
+  <circle cx="80" cy="300" r="120" fill="url(#glow)" />
+  <g transform="translate(240, 100)" fill="none" stroke="#ECFDF5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 20 L110 45 V95 C110 135 60 160 60 160 C60 160 10 135 10 95 V45 Z" fill="#10B981" fill-opacity="0.3" />
+    <path d="M40 90 L55 105 L85 70" stroke="#F0FDF4" stroke-width="10" />
+  </g>
+  <text x="300" y="270" text-anchor="middle" fill="#A7F3D0" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600" letter-spacing="3">SAFETY NET &amp; RESERVES</text>
+</svg>

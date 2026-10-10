@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1C1917" />
+      <stop offset="50%" stop-color="#292524" />
+      <stop offset="100%" stop-color="#44403C" />
+    </linearGradient>
+    <linearGradient id="ember" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5900" />
+      <stop offset="100%" stop-color="#EA580C" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="340" fill="url(#bg)" />
+  <circle cx="300" cy="110" r="50" fill="url(#ember)" opacity="0.8" />
+  <polygon points="300,75 315,105 345,110 322,130 330,160 300,142 270,160 278,130 255,110 285,105" fill="#FFF7ED" />
+  <text x="300" y="270" text-anchor="middle" fill="#FED7AA" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600" letter-spacing="3">MILESTONE TARGET</text>
+</svg>

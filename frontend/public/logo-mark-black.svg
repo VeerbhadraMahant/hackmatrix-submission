@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%" fill="none">
+  
+  <style>
+    .brand-fg { fill: #090a0f; }
+    .brand-accent { fill: #090a0f; }
+  </style>
+  <!-- FinPilot Financial Growth Compass Apex -->
+  <!-- Grounded Baseline -->
+  <path d="M72 440 L440 440 L424 424 L88 424 Z" class="brand-fg" />
+  <!-- Bar 1 -->
+  <polygon points="144,424 200,424 200,344 144,382" class="brand-fg" />
+  <!-- Bar 2 -->
+  <polygon points="220,424 276,424 276,262 220,300" class="brand-fg" />
+  <!-- Bar 3 -->
+  <polygon points="296,424 352,424 352,180 296,218" class="brand-fg" />
+  <!-- Needle Left Facet -->
+  <polygon points="396,72 244,154 328,178" class="brand-accent" />
+  <!-- Needle Right Facet -->
+  <polygon points="396,72 328,178 356,260" class="brand-fg" />
+</svg>

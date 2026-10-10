@@ -1,0 +1,508 @@
+@import "tailwindcss";
+@import "@fontsource-variable/plus-jakarta-sans";
+@import "@fontsource-variable/outfit";
+/*
+ ---break---
+ */
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * FinPilot Design System — Refined Fintech Direction
+ * Inspired by Copilot Money, Monarch Money, Rocket Money & YNAB.
+ * Retains the Paper + Ink + Ember core palette while adding tactile elevation,
+ * glassmorphism, tabular numerals, and motion primitives.
+ */
+
+:root {
+  /* Canvas & Surfaces */
+  --color-paper: #ffffff;
+  --color-fog: #f1f2ec;
+  --color-surface-subtle: #f6f8fd;
+  --color-surface-card: #ffffff;
+  --color-surface-glass: rgba(255, 255, 255, 0.72);
+  --color-surface-glass-dark: rgba(9, 10, 15, 0.85);
+
+  /* Monochrome Ink & Metal Scale */
+  --color-ink: #0d0d0d;
+  --color-carbon: #1e293b;
+  --color-graphite: #475569;
+  --color-pewter: #7487a3;
+  --color-steel: #a3b0c7;
+  --color-mist: #e0e6f2;
+
+  /* Core Accent (Luminous Ember) */
+  --color-ember: #ff6b1a;
+  --color-ember-dark: #e0540a;
+  --color-ember-light: #ff9340;
+  --color-ember-glow: rgba(255, 107, 26, 0.22);
+  --color-ember-soft: rgba(255, 107, 26, 0.12);
+
+  /* Navy Blue button accent */
+  --color-navy: #172554;
+  --color-navy-dark: #0f172a;
+  --color-navy-light: #1e3a8a;
+  --color-navy-glow: rgba(23, 37, 84, 0.22);
+
+  /* Colourful accents: green / sky / sun + soft tints for card fills */
+  --color-leaf: #0fb67a;
+  --color-sky: #3b6bff;
+  --color-sun: #ffb81f;
+  --tint-leaf: #d8f6e9;
+  --tint-sky: #dfe7ff;
+  --tint-sun: #fff0c9;
+  --tint-ember: #ffe6d4;
+  --color-lime: #c6f135;
+  --color-lime-dark: #a6d11a;
+  --tint-lime: #eefacc;
+  --color-sage: #dfe8c4;
+  --color-sage-deep: #cddaa6;
+
+  /* Semantic Category / Telemetry Badges */
+  --badge-emerald: #0fb67a;
+  --badge-emerald-bg: rgba(15, 182, 122, 0.12);
+  --badge-amber: #e09400;
+  --badge-amber-bg: rgba(224, 148, 0, 0.12);
+  --badge-rose: #f0455a;
+  --badge-rose-bg: rgba(240, 69, 90, 0.1);
+  --badge-indigo: #3b6bff;
+  --badge-indigo-bg: rgba(59, 107, 255, 0.12);
+  --badge-cyan: #12a5b8;
+  --badge-cyan-bg: rgba(18, 165, 184, 0.12);
+
+  /* Borders & Hairlines */
+  --border-hairline: rgba(15, 23, 42, 0.09);
+  --border-hairline-subtle: rgba(15, 23, 42, 0.05);
+  --border-highlight: rgba(255, 255, 255, 0.9);
+  --border-focus: rgba(255, 89, 0, 0.45);
+
+  /* Semantic Aliases */
+  --background: #eceee4;
+  --foreground: var(--color-ink);
+  --surface: #ffffff;
+  --surface-subtle: #f8f9fa;
+  --surface-muted: var(--color-fog);
+  --text-secondary: var(--color-graphite);
+  --text-tertiary: var(--color-pewter);
+  --accent: var(--color-fog);
+  --accent-foreground: var(--color-ink);
+
+  --radius-chip: 10px;
+  --radius-surface: 16px;
+  --radius-card: 28px;
+
+  /* Shared motion + stacking scale -- additive only, keeps interactive
+     transitions (buttons, chips, form controls) consistent across pages
+     without every component re-deriving its own duration. */
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+
+  --z-dropdown: 20;
+  --z-sticky: 30;
+  --z-overlay: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+  /* shadcn/ui tokens mapped onto the FinPilot palette */
+  --card: var(--color-surface-card);
+  --card-foreground: var(--color-ink);
+  --popover: var(--color-paper);
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-lime);
+  --primary-foreground: var(--color-ink);
+  --secondary: var(--color-fog);
+  --secondary-foreground: var(--color-ink);
+  --muted: #64748b;
+  --muted-foreground: var(--color-pewter);
+  --destructive: var(--badge-rose);
+  --border: var(--color-mist);
+  --input: var(--color-mist);
+  --ring: var(--color-ink);
+  --chart-1: var(--color-ember);
+  --chart-2: var(--badge-indigo);
+  --chart-3: var(--badge-emerald);
+  --chart-4: var(--badge-amber);
+  --chart-5: var(--badge-cyan);
+  --radius: 0.875rem;
+  --sidebar: #f8f9ef;
+  --sidebar-foreground: #3a4526;
+  --sidebar-primary: var(--color-lime);
+  --sidebar-primary-foreground: var(--color-ink);
+  --sidebar-accent: rgba(13, 13, 13, 0.06);
+  --sidebar-accent-foreground: var(--color-ink);
+  --sidebar-border: rgba(13, 13, 13, 0.08);
+  --sidebar-ring: var(--color-lime);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-paper: var(--color-paper);
+  --color-fog: var(--color-fog);
+  --color-surface-subtle: var(--color-surface-subtle);
+  --color-mist: var(--color-mist);
+  --color-steel: var(--color-steel);
+  --color-pewter: var(--color-pewter);
+  --color-graphite: var(--color-graphite);
+  --color-carbon: var(--color-carbon);
+  --color-ink: var(--color-ink);
+  --color-leaf: var(--color-leaf);
+  --color-sky: var(--color-sky);
+  --color-sun: var(--color-sun);
+  --color-tint-leaf: var(--tint-leaf);
+  --color-tint-sky: var(--tint-sky);
+  --color-tint-sun: var(--tint-sun);
+  --color-tint-ember: var(--tint-ember);
+  --color-lime: var(--color-lime);
+  --color-lime-dark: var(--color-lime-dark);
+  --color-sage: var(--color-sage);
+  --color-sage-deep: var(--color-sage-deep);
+  --color-tint-lime: var(--tint-lime);
+  --color-ember: var(--color-ember);
+  --color-ember-dark: var(--color-ember-dark);
+  --color-ember-light: var(--color-ember-light);
+  --color-navy: var(--color-navy);
+  --color-navy-dark: var(--color-navy-dark);
+  --color-navy-light: var(--color-navy-light);
+  --color-surface-muted: var(--surface-muted);
+  --color-border-hairline: var(--border-hairline);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-emerald-badge: var(--badge-emerald);
+  --color-amber-badge: var(--badge-amber);
+  --color-rose-badge: var(--badge-rose);
+  --color-indigo-badge: var(--badge-indigo);
+  --color-cyan-badge: var(--badge-cyan);
+
+  --radius-chip: var(--radius-chip);
+  --radius-surface: var(--radius-surface);
+  --radius-card: var(--radius-card);
+
+  --font-sans: "Plus Jakarta Sans Variable", system-ui, sans-serif;
+  --font-display: "Outfit Variable", system-ui, sans-serif;
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+}
+
+/* Base resets & typography */
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  /* Pale sage canvas with a faint grid, like a sheet of graph paper */
+  background:
+    linear-gradient(to right, rgba(13, 13, 13, 0.035) 1px, transparent 1px) 0 0 / 44px 44px,
+    linear-gradient(to bottom, rgba(13, 13, 13, 0.035) 1px, transparent 1px) 0 0 / 44px 44px,
+    var(--background);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: "Plus Jakarta Sans Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.025em;
+}
+
+.font-display {
+  font-family: "Outfit Variable", system-ui, sans-serif;
+}
+
+/* Tabular Numerals for stable, non-jumping financial counters */
+.tnum,
+.font-tabular {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Multi-tier Tactile Elevation Shadows */
+.elevation-card {
+  background-color: var(--color-surface-card);
+  border: 1px solid rgba(13, 13, 13, 0.04);
+  box-shadow: 0 1px 2px rgba(13, 13, 13, 0.04), 0 10px 24px -16px rgba(13, 13, 13, 0.18);
+}
+
+.elevation-card-hover {
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 220ms ease;
+}
+
+.elevation-card-hover:hover {
+  transform: translateY(-3px);
+  border-color: rgba(166, 209, 26, 0.55);
+  box-shadow:
+    0 2px 4px rgba(13, 13, 13, 0.05),
+    0 22px 38px -16px rgba(95, 127, 12, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .elevation-card-hover,
+  .elevation-card-hover:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+.elevation-card-active {
+  box-shadow:
+    0 1px 3px rgba(15, 23, 42, 0.04),
+    0 12px 30px -4px rgba(255, 89, 0, 0.08);
+}
+
+/* Frosted Glass Utilities */
+.glass-header {
+  background-color: var(--color-surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.glass-card {
+  background-color: var(--color-surface-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 4px 20px -2px rgba(15, 23, 42, 0.04),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+}
+
+.dark .glass-card {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 4px 20px -2px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Inner highlight for premium feel */
+.inner-highlight {
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.85);
+}
+
+.dark .inner-highlight {
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Subtle Shimmer effect for Loading Skeletons */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer-mask {
+  position: relative;
+  overflow: hidden;
+  background-color: #e6ebf6;
+}
+
+.shimmer-mask::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 1.6s infinite ease-in-out;
+}
+
+/* Floating Drift Keyframes for Hero Visual */
+@keyframes drift-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.4deg);
+  }
+}
+
+@keyframes drift-delayed {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-0.5deg);
+  }
+}
+
+.animate-drift-slow {
+  animation: drift-slow 10s ease-in-out infinite;
+}
+
+.animate-drift-delayed {
+  animation: drift-delayed 12s ease-in-out infinite 1.5s;
+}
+
+/* Prefers Reduced Motion Compliance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Skeleton loading placeholder -- see components/ui/Skeleton.tsx. */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-skeleton-pulse {
+  animation: skeleton-pulse 1.6s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Executive Financial Statement — Print & PDF Media Stylesheet
+   ========================================================================== */
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm 15mm 15mm;
+  }
+
+  /* Reset layout constraints and hide UI chrome */
+  html,
+  body {
+    background: #ffffff !important;
+    color: #090a0f !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Force hide all interactive web application shell components */
+  header,
+  nav,
+  .glass-header,
+  [role="navigation"],
+  .print\:hidden,
+  .no-print,
+  button:not(#executive-statement-document button),
+  input,
+  select,
+  nextjs-portal,
+  #__next-build-watcher {
+    display: none !important;
+  }
+
+  /* Expand main container to full printable width without web padding */
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Page break management */
+  .break-inside-avoid,
+  section,
+  table,
+  tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Ensure document card prints crisp without box shadows */
+  #executive-statement-document {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+  }
+}
+
+/* ===== landing ===== */
+.landing-grid {
+  background-image:
+    linear-gradient(to right, rgba(9, 10, 15, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(9, 10, 15, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+}
+.landing-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 90% at 100% 100%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 90% at 100% 100%, #000 20%, transparent 75%);
+}
+@keyframes landing-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -14px, 0); }
+}
+.landing-orb { animation: landing-float 9s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .landing-orb { animation: none; }
+}
+/*
+ ---break---
+ */
+.dark {
+  --sidebar: hsl(240 5.9% 10%);
+  --sidebar-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-primary: hsl(224.3 76.3% 48%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(240 3.7% 15.9%);
+  --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-border: hsl(240 3.7% 15.9%);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+}
+.hide-amounts .tnum { filter: blur(7px); }
