@@ -1,0 +1,56 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+claude.md
+
+# node
+node_modules/
+.next/
+out/
+dist/
+build/
+.turbo/
+*.tsbuildinfo
+npm-debug.log*
+
+# python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+*.db
+*.sqlite3
+
+# claude / docs (keep only the repo-root README.md)
+.agents/
+.claude/
+CLAUDE.md
+AGENTS.md
+**/*.md
+!/README.md
+!brand/*.md
+!audit/*.md
+
+# logs
+*.log
+
+# os
+.DS_Store
+Thumbs.db
+
+
+# media & temp assets
+antigravity_pack/
+antigravity_pack.zip
+*.mp4
+
+# firebase service-account keys
+*firebase-adminsdk*.json
+
+# rag embedding cache
+.cache/

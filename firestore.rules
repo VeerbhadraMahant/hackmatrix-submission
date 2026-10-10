@@ -1,0 +1,13 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{db}/documents {
+    // The backend uses the Admin SDK (bypasses rules). Clients: read-only, own docs only.
+    match /{coll}/{id} {
+      allow read: if request.auth != null
+        && coll in ['accounts', 'transactions', 'categorization_rules', 'debts', 'incomes',
+                    'goals', 'budgets', 'events', 'household_members']
+        && resource.data.user_id == request.auth.uid;
+      allow write: if false;
+    }
+  }
+}
