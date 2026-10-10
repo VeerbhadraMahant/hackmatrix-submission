@@ -1,0 +1,117 @@
+"""Write docs/plan_evidence.md + docs/plan_evidence.json for all demo scenarios.
+
+Run from backend/:  python -m app.plan.report
+"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+from app.plan.scenarios import SPECS, run_scenario
+from app.plan.schemas import Scenario
+
+DOCS = Path(__file__).resolve().parents[3] / "docs"
+
+
+def _inr(x: float) -> str:
+    return f"{x:,.0f}"
+
+
+def _table(head: list[str], rows: list[list]) -> str:
+    out = ["| " + " | ".join(head) + " |", "|" + "---|" * len(head)]
+    out += ["| " + " | ".join(str(c) for c in r) + " |" for r in rows]
+    return "\n".join(out)
+
+
+def _section(s: Scenario) -> str:
+    p, c = s.plan, s.plan.constraints
+    seqs = p.sequences + ([p.risk_adjusted] if p.risk_adjusted else [])
+    rec = next(q for q in seqs if q.id == p.recommended_id)
+    tl = s.timeline
+    L = [f"## {s.name}: {s.title}", ""]
+    L += ["**Synthetic assumptions**", ""] + [f"- {k}: {v}" for k, v in s.assumptions.items()] + [""]
+    L += [
+        f"**Timeline (month index)**: train {tl.train[0]}-{tl.train[1]}, validation {tl.validation[0]}-{tl.validation[1]} "
+        f"(chose window W={tl.chosen_window}), test {tl.test[0]}-{tl.test[1]} (held out, reported once).",
+        "",
+        f"**Forecast method**: {p.method.description} Seed {p.method.seed}, N={p.method.n_paths}, horizon {p.method.horizon_months}.",
+        "",
+        f"**Constraints**: min reserve INR {_inr(c.min_reserve)}; discretionary cut <= {c.max_discretionary_cut:.0%} "
+        f"(policy cut {c.policy_cut:.0%}); essentials and debt minimums always paid; risk tolerance {c.risk_tolerance:.0%}; "
+        + (f"goal INR {_inr(c.goal.amount)} by period {c.goal.by_period}." if c.goal else "no goal.") + f" Starting cash INR {_inr(p.starting_cash)}.",
+        "",
+        "### Monthly forecast (P10 / P50 / P90)",
+        "",
+        _table(
+            ["period", "month", "income", "essential", "discretionary", "net", "debt min"],
+            [[f.period, f.month, *[f"{_inr(b.p10)} / {_inr(b.p50)} / {_inr(b.p90)}" for b in (f.income, f.essential, f.discretionary, f.net)],
+              _inr(f.debt_min)] for f in p.forecast],
+        ),
+        "",
+        "### Sequences",
+        "",
+        _table(
+            ["id", "shortfall risk", "P(cash<0)", "goal progress", "interest saved", "objective"],
+            [[q.id, f"{q.shortfall_risk:.1%}", f"{q.p_negative:.1%}", f"{q.goal_progress:.0%}", _inr(q.interest_saved), _inr(q.objective)] for q in seqs],
+        ),
+        "",
+        f"**Recommended**: `{p.recommended_id}`. **P50-only best**: `{p.p50_only_best_id}`. "
+        f"Uncertainty changed the choice: **{'yes' if p.uncertainty_changed_choice else 'no'}**.",
+        "",
+        p.rationale,
+        "",
+        f"### Period plan for `{rec.id}`",
+        "",
+        _table(
+            ["period", "month", "disc. cut", "debt min", "extra debt", "savings", "planned cash", "cash P10 / P50 / P90", "reserve ok"],
+            [[x.period, x.month, _inr(x.discretionary_cut), _inr(x.debt_min), _inr(x.extra_debt), _inr(x.savings_contrib), _inr(x.cash_end),
+              f"{_inr(x.cash_p10)} / {_inr(x.cash_p50)} / {_inr(x.cash_p90)}", x.reserve_ok] for x in rec.periods],
+        ),
+        "",
+    ]
+    if p.conflicts:
+        L += [f"### Infeasibility (feasible = {p.feasible})", ""] + [f"- {x.message}" for x in p.conflicts]
+        L += ["", "Relaxations (each re-verified):", ""] + [f"- {r.message} (feasible: {r.feasible})" for r in p.relaxations] + [""]
+    if s.replan:
+        r = s.replan
+        L += [
+            f"### Replan after shock `{r.shock.model_dump(exclude_none=True)}`",
+            "",
+            f"Periods changed: {r.changed_periods}. Recommended before: `{r.before.recommended_id}`, after: `{r.after.recommended_id}`. {r.after.rationale}",
+            "",
+        ]
+    L += [
+        "### Planned vs realized (held-out test months, recommended plan as originally committed)",
+        "",
+        _table(["period", "planned cash", "realized cash", "reserve breached"],
+               [[o.period, _inr(o.planned_cash), _inr(o.realized_cash), o.reserve_breached] for o in s.outcome]),
+        "",
+        "### Backtest on test months (rolling origin, 1-step-ahead)",
+        "",
+        _table(["model", "stream", "MAE", "80% PI coverage", "mean PI width"],
+               [[b.model, b.stream, _inr(b.mae), f"{b.coverage:.0%}", _inr(b.mean_width)] for b in s.backtest]),
+        "",
+        "Recurring baseline is a point forecast (zero-width interval), so its coverage is about 0 by construction.",
+        "",
+    ]
+    return "\n".join(L)
+
+
+def main() -> None:
+    scenarios = [run_scenario(n) for n in SPECS]
+    DOCS.mkdir(exist_ok=True)
+    (DOCS / "plan_evidence.json").write_text(
+        json.dumps([s.model_dump(mode="json") for s in scenarios], indent=2), encoding="utf-8"
+    )
+    head = (
+        "# Plan evidence\n\nGenerated by `python -m app.plan.report` (all data synthetic, INR, fixed seeds).\n\n"
+        "Recommendation rule: among action sequences whose shortfall risk P(cash < reserve in any period) is within tolerance, "
+        "pick the best objective (INR toward the goal/debt, capped at the goal by its deadline, plus interest saved). "
+        "If none is within tolerance, committed amounts are scaled down until risk is within tolerance.\n\n"
+    )
+    (DOCS / "plan_evidence.md").write_text(head + "\n".join(_section(s) for s in scenarios), encoding="utf-8")
+    print(f"wrote {DOCS / 'plan_evidence.md'} and plan_evidence.json")
+
+
+if __name__ == "__main__":
+    main()
